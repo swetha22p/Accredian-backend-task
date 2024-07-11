@@ -28,6 +28,7 @@ const transporter = nodemailer.createTransport({
       pass: 'nfcb qcsi wbti zuus', // Your email password or app-specific password
     },
   });
+
   
 
 app.post('/referrals', async (req, res) => {
@@ -57,6 +58,9 @@ app.post('/referrals', async (req, res) => {
     console.error('Validation Error:', err);
     res.status(400).json({ error: err.errors || 'Invalid data' });
   }
+});
+app.get('/get', (req, res) => {
+  res.status(200).send('Server is deployed and running.');
 });
 
 const PORT = process.env.PORT || 3000;
